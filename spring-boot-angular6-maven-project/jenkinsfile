@@ -1,0 +1,76 @@
+pipeline {
+    agent any
+       /* parameters {
+            choice(
+                name: 'Nodes',
+                choices:"Linux\nMac",
+                description: "Choose Node!")
+            choice(
+                name: 'Versions',
+                choices:"3.4\n4.4",
+                description: "Build for which version?" )
+            string(
+                name: 'Path',
+                defaultValue:"/home/pencillr/builds/",
+                description: "Where to put the build!")
+    }
+    stages {
+       stages {
+        stage("parameterizing") {
+            steps {
+                script {
+                    if ("${params.Invoke_Parameters}" == "Yes") {
+                        currentBuild.result = 'ABORTED'
+                        error('DRY RUN COMPLETED. JOB PARAMETERIZED.')
+                    }
+                }
+            }
+        }*/
+
+   stage("Compile Stage"){
+
+       steps{
+           withMaven(Maven: 'apache-maven-3.5.0')
+           sh 'mvn clean compile'
+
+       }
+   }
+
+stage("Testing Stage"){
+
+       steps{
+           withMaven(Maven: 'apache-maven-3.5.0')
+           sh 'mvn clean test'
+
+       }
+   }
+
+
+/*
+        stage("build") {
+            steps {
+                script {
+                    def b = build(job: "parameter-source-job", propagate: false)
+                    build(
+                        job: "analyzer-job",
+                        parameters: [
+                            [
+                                $class: 'StringParameterValue',
+                                name: 'PARAM_ONE',
+                                value: b.buildVariables.PARAM_ONE
+                            ],
+                            [
+                                $class: 'StringParameterValue',
+                                name: 'PARAM_TWO',
+                                value: b.buildVariables.PARAM_TWO
+                            ]
+                        ]
+                    )
+                    if (b.result == 'FAILURE') {
+                            error("${b.projectName} FAILED")
+                    }
+                }
+            }
+        }
+    }*/
+}
