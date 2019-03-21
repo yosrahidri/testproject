@@ -8,7 +8,16 @@ import { CalculatorService } from './calculator/calculator.service';
   styleUrls: ['./app.component.css'],
   providers: [CalculatorService]
 })
-export class AppComponent implements OnInit, OnChanges {
+
+export class AppComponent {
+  title = 'calculator';
+  sum: number;
+  calculate(first: number, second: number) {
+   this.sum = +first + +second;
+  }
+}
+
+/*export class AppComponent implements OnInit, OnChanges {
 
 
   title = 'calculator';
@@ -34,5 +43,5 @@ constructor(
   }
 
 
-}
+}*/
 
