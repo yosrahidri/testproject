@@ -1,12 +1,12 @@
 
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { CalculatorService } from './calculator/calculator.service';
+import { Component } from '@angular/core';
+// import { CalculatorService } from './calculator/calculator.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [CalculatorService]
+ // providers: [CalculatorService]
 })
 
 export class AppComponent {

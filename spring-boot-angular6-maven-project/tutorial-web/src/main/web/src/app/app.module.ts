@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CalculatorService } from './calculator/calculator.service';
+// import { CalculatorService } from './calculator/calculator.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -10,7 +10,7 @@ import { CalculatorService } from './calculator/calculator.service';
   imports: [
     BrowserModule
   ],
-  providers: [CalculatorService],
+ // providers: [CalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
