@@ -1,25 +1,21 @@
 pipeline {
+
+   def mvnHome = tool name: 'apache-maven-3.5.0', type: 'maven'
+	def javaHome = tool name: 'jdk1.8.0_201', type: 'jdk'
+	env.PATH = "${javaHome}/bin:${mvnHome}/bin:${env.PATH}"
+
+
     agent any
-       
-
    stage("Compile Stage"){
-
        steps{
            withMaven(Maven: 'apache-maven-3.5.0')
            sh 'mvn clean compile'
-
        }
    }
-
-stage("Testing Stage"){
-
+   stage("Testing Stage"){
        steps{
            withMaven(Maven: 'apache-maven-3.5.0')
            sh 'mvn clean test'
-
        }
    }
-
-
-
 }
