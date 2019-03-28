@@ -5,14 +5,25 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 
 exports.config = {
   allScriptsTimeout: 11000,
+  seleniumAddress: 'http://localhost:4444/wd/hub/',
   specs: [
   //'C:/Users/Yosra/Documents/workspace_eclipse_oxygen/spring-boot-angular6-maven-project/tutorial-web/src/main/web/src/app/*.spec.ts'
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'chrome'
+	  
+			    browserName: 'chrome',
+			    chromeDriver: 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
+			    chromeOptions: {
+			        'args': ['--start-maximized', 'disable-infobars', 'disable-gpu', 'incognito', '--headless']
+			    },
+			    'acceptInsecureCerts': true,
+			    shardTestFiles: true,
+			    maxInstances: 1
+			
   },
-  directConnect: true,
+  chromeOnly: true,
+  //directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
