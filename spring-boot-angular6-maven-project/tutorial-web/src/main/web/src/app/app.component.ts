@@ -1,47 +1,14 @@
-
 import { Component } from '@angular/core';
-// import { CalculatorService } from './calculator/calculator.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
- // providers: [CalculatorService]
+  styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
   title = 'calculator';
   sum: number;
-  calculate(first: number, second: number) {
+  calculate(first:number, second:number) {
    this.sum = +first + +second;
   }
 }
-
-/*export class AppComponent implements OnInit, OnChanges {
-
-
-  title = 'calculator';
- sum = 0;
-first: number;
-second: number;
-
-
-constructor(
-    private calc: CalculatorService
-  ) {}
-
-  public somme () {
-      this.sum = this.calc.calculate(this.first , this.second);
-  }
-
-  ngOnInit() {
-  }
-
-  ngOnChanges() {
-
-
-  }
-
-
-}*/
 
